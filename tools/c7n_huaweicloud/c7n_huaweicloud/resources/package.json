@@ -1,0 +1,91 @@
+{
+ "policies": [
+  {
+   "id": "2295723b-8176-4daa-8490-fc4b265c9f48",
+   "name": "policy_12257",
+   "operation_type": "backup",
+   "operation_definition": {
+    "max_backups": -1,
+    "retention_duration_days": 30,
+    "day_backups": 0,
+    "week_backups": 0,
+    "month_backups": 0,
+    "year_backups": 0,
+    "timezone": "UTC+08:00",
+    "full_backup_interval": -1,
+    "created_by": "customer"
+   },
+   "enabled": true,
+   "trigger": {
+    "id": "b3202b28-2b73-4dbd-bb16-591b324e30ef",
+    "name": "default",
+    "type": "time",
+    "properties": {
+     "pattern": [
+      "FREQ=WEEKLY;BYDAY=MO,TU,WE,TH,FR,SA,SU;BYHOUR=14;BYMINUTE=00",
+      "FREQ=WEEKLY;BYDAY=MO,TU,WE,TH,FR,SA,SU;BYHOUR=11;BYMINUTE=00"
+     ],
+     "start_time": "2024-11-13 04:25:10"
+    }
+   },
+   "associated_vaults": []
+  },
+  {
+   "id": "a9b3179a-30a1-4f29-b7c0-71bf38ec4026",
+   "name": "policy_12250",
+   "operation_type": "backup",
+   "operation_definition": {
+    "max_backups": -1,
+    "retention_duration_days": 30,
+    "day_backups": 0,
+    "week_backups": 0,
+    "month_backups": 0,
+    "year_backups": 0,
+    "timezone": "UTC+08:00",
+    "full_backup_interval": -1,
+    "created_by": "customer"
+   },
+   "enabled": true,
+   "trigger": {
+    "id": "9105d836-6daa-487f-862c-dc8194d899da",
+    "name": "default",
+    "type": "time",
+    "properties": {
+     "pattern": [
+      "FREQ=WEEKLY;BYDAY=MO,TU,WE,TH,FR,SA,SU;BYHOUR=14;BYMINUTE=00"
+     ],
+     "start_time": "2024-11-13 04:25:04"
+    }
+   },
+   "associated_vaults": []
+  },
+  {
+   "id": "49f079f1-450a-41c6-8688-022ccf2b71fc",
+   "name": "defaultPolicy",
+   "operation_type": "backup",
+   "operation_definition": {
+    "max_backups": -1,
+    "retention_duration_days": 30,
+    "created_by": "customer"
+   },
+   "enabled": true,
+   "trigger": {
+    "id": "fb53d13a-f252-4ad6-abea-8280f4684678",
+    "name": "default",
+    "type": "time",
+    "properties": {
+     "pattern": [
+      "FREQ=WEEKLY;BYDAY=MO,TU,WE,TH,FR,SA,SU;BYHOUR=04;BYMINUTE=00"
+     ],
+     "start_time": "2024-07-04 06:43:22"
+    }
+   },
+   "associated_vaults": []
+  }
+ ],
+ "count": 3,
+ "limit": 1000,
+ "offset": 0
+}
+
+42da2015-a512-481a-9c86-f02c08cffc10

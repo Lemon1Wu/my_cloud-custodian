@@ -1,0 +1,82 @@
+{
+  "policy": {
+    "name": "delete-unencrypted-backup",
+    "resource": "huaweicloud.cbr-backup",
+    "filters": [
+      {
+        "and": [
+          {
+            "type": "value",
+            "key": "extend_info.encrypted",
+            "value": false
+          },
+          {
+            "type": "value",
+            "key": "resource_type",
+            "value": "OS::Cinder::Volume"
+          }
+        ]
+      }
+    ]
+  },
+  "version": "0.9.43",
+  "execution": {
+    "id": "35663396-d7c2-4166-b515-b53d2a3bc9d4",
+    "start": 1742888920.0299413,
+    "end_time": 1742888920.0312994,
+    "duration": 0.0013580322265625
+  },
+  "config": {
+    "region": "",
+    "regions": [],
+    "cache": "~/.cache/cloud-custodian.cache",
+    "profile": null,
+    "account_id": null,
+    "assume_role": null,
+    "session_policy": null,
+    "external_id": null,
+    "log_group": null,
+    "tracer": null,
+    "metrics_enabled": null,
+    "metrics": null,
+    "output_dir": "./output",
+    "cache_period": 15,
+    "dryrun": false,
+    "authorization_file": null,
+    "subparser": "run",
+    "config": null,
+    "configs": [
+      "unencrypted.yml"
+    ],
+    "policy_filters": [],
+    "resource_types": [],
+    "verbose": null,
+    "quiet": null,
+    "debug": false,
+    "skip_validation": false,
+    "command": "c7n.commands.run",
+    "vars": null
+  },
+  "sys-stats": {},
+  "api-stats": {},
+  "metrics": [
+    {
+      "MetricName": "ResourceCount",
+      "Timestamp": "2025-03-25T15:48:40.031109",
+      "Value": 1,
+      "Unit": "Count"
+    },
+    {
+      "MetricName": "ResourceTime",
+      "Timestamp": "2025-03-25T15:48:40.031118",
+      "Value": 0.0008032321929931641,
+      "Unit": "Seconds"
+    },
+    {
+      "MetricName": "ActionTime",
+      "Timestamp": "2025-03-25T15:48:40.031291",
+      "Value": 1.430511474609375e-06,
+      "Unit": "Seconds"
+    }
+  ]
+}

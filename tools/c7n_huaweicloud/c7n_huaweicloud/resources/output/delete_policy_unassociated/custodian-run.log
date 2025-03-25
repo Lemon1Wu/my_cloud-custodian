@@ -1,0 +1,2 @@
+2025-03-25 16:09:43,241 - custodian.policy - INFO - policy:delete_policy_unassociated resource:huaweicloud.cbr-policy region: count:1 time:1.04
+2025-03-25 16:09:43,547 - custodian.policy - INFO - policy:delete_policy_unassociated action:cbrdeletepolicy resources:1 execution_time:0.31

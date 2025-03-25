@@ -1,0 +1,13 @@
+policies:
+    - name: delete_policy_unassociated
+      resource: huaweicloud.cbr-policy
+      filters:
+        - and:
+          - type: value
+            key: name
+            value: "weekly_create_backup"
+          - type: value
+            key: associated_vaults
+            value: []
+      actions:
+        - delete_policy

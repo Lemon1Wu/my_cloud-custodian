@@ -1,0 +1,28 @@
+[
+  {
+    "enabled": true,
+    "id": "3066b0ac-383c-4f5b-952a-2501d90f4f49",
+    "name": "weekly_create_backup",
+    "operation_definition": {
+      "retention_duration_days": 30,
+      "full_backup_interval": -1
+    },
+    "operation_type": "backup",
+    "trigger": {
+      "id": "e61e838f-6019-4f79-92b4-66c3ab5817ff",
+      "name": "default",
+      "properties": {
+        "pattern": [
+          "FREQ=WEEKLY;BYDAY=MO,TU,WE,TH,FR,SA,SU;BYHOUR=09;BYMINUTE=00"
+        ],
+        "start_time": "2025-03-25 07:59:52"
+      },
+      "type": "time"
+    },
+    "associated_vaults": [],
+    "c7n:MatchedFilters": [
+      "name",
+      "associated_vaults"
+    ]
+  }
+]

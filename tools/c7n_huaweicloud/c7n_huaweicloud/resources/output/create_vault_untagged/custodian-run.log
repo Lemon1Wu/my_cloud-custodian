@@ -1,0 +1,29 @@
+2025-03-22 14:21:12,804 - custodian.output - ERROR - Error while executing policy
+Traceback (most recent call last):
+  File "/root/huawei_custodian/cloud-custodian/c7n/policy.py", line 330, in run
+    resources = self.policy.resource_manager.resources()
+  File "/root/huawei_custodian/cloud-custodian/tools/c7n_huaweicloud/c7n_huaweicloud/query.py", line 153, in resources
+    resources = self._fetch_resources(q)
+  File "/root/huawei_custodian/cloud-custodian/tools/c7n_huaweicloud/c7n_huaweicloud/query.py", line 172, in _fetch_resources
+    return self.augment(self.source.get_resources(query)) or []
+                        ~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^
+  File "/root/huawei_custodian/cloud-custodian/tools/c7n_huaweicloud/c7n_huaweicloud/query.py", line 74, in get_resources
+    return self.query.filter(self.manager, **query)
+           ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/huawei_custodian/cloud-custodian/tools/c7n_huaweicloud/c7n_huaweicloud/query.py", line 28, in filter
+    resources = self._pagination_limit_offset(m, enum_op, path)
+  File "/root/huawei_custodian/cloud-custodian/tools/c7n_huaweicloud/c7n_huaweicloud/query.py", line 45, in _pagination_limit_offset
+    response = self._invoke_client_enum(client, enum_op, request)
+  File "/root/huawei_custodian/cloud-custodian/tools/c7n_huaweicloud/c7n_huaweicloud/query.py", line 62, in _invoke_client_enum
+    return getattr(client, enum_op)(request)
+           ~~~~~~~^^^^^^^^^^^^^^^^^
+AttributeError: 'CbrClient' object has no attribute 'list_vaults'. Did you mean: 'list_vault'?
+2025-03-22 14:23:42,858 - custodian.policy - INFO - policy:create_vault_untagged resource:huaweicloud.cbr-vault region: count:2 time:1.03
+2025-03-22 14:23:49,279 - custodian.policy - INFO - policy:create_vault_untagged resource:huaweicloud.cbr-vault region: count:2 time:0.00
+2025-03-22 14:30:18,126 - custodian.policy - INFO - policy:create_vault_untagged resource:huaweicloud.cbr-vault region: count:2 time:0.00
+2025-03-22 17:24:35,766 - custodian.policy - INFO - policy:create_vault_untagged resource:huaweicloud.cbr-vault region: count:2 time:1.03
+2025-03-22 17:26:28,592 - custodian.policy - INFO - policy:create_vault_untagged resource:huaweicloud.cbr-vault region: count:2 time:0.00
+2025-03-22 17:26:30,587 - custodian.policy - INFO - policy:create_vault_untagged resource:huaweicloud.cbr-vault region: count:2 time:0.00
+2025-03-22 17:27:12,868 - custodian.policy - INFO - policy:create_vault_untagged resource:huaweicloud.cbr-vault region: count:2 time:0.00
+2025-03-22 17:27:16,472 - custodian.policy - INFO - policy:create_vault_untagged resource:huaweicloud.cbr-vault region: count:2 time:0.00
+2025-03-22 17:27:26,164 - custodian.policy - INFO - policy:create_vault_untagged resource:huaweicloud.cbr-vault region: count:2 time:0.00

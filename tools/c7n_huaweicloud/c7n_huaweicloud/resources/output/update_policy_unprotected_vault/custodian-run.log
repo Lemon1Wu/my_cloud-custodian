@@ -1,0 +1,42 @@
+2025-03-22 15:53:50,695 - custodian.output - ERROR - Error while executing policy
+Traceback (most recent call last):
+  File "/root/huawei_custodian/cloud-custodian/c7n/policy.py", line 330, in run
+    resources = self.policy.resource_manager.resources()
+  File "/root/huawei_custodian/cloud-custodian/tools/c7n_huaweicloud/c7n_huaweicloud/query.py", line 153, in resources
+    resources = self._fetch_resources(q)
+  File "/root/huawei_custodian/cloud-custodian/tools/c7n_huaweicloud/c7n_huaweicloud/query.py", line 172, in _fetch_resources
+    return self.augment(self.source.get_resources(query)) or []
+                        ~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^
+  File "/root/huawei_custodian/cloud-custodian/tools/c7n_huaweicloud/c7n_huaweicloud/query.py", line 74, in get_resources
+    return self.query.filter(self.manager, **query)
+           ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/huawei_custodian/cloud-custodian/tools/c7n_huaweicloud/c7n_huaweicloud/query.py", line 28, in filter
+    resources = self._pagination_limit_offset(m, enum_op, path)
+  File "/root/huawei_custodian/cloud-custodian/tools/c7n_huaweicloud/c7n_huaweicloud/query.py", line 45, in _pagination_limit_offset
+    response = self._invoke_client_enum(client, enum_op, request)
+  File "/root/huawei_custodian/cloud-custodian/tools/c7n_huaweicloud/c7n_huaweicloud/query.py", line 62, in _invoke_client_enum
+    return getattr(client, enum_op)(request)
+           ~~~~~~~^^^^^^^^^^^^^^^^^
+AttributeError: 'CbrClient' object has no attribute 'list_vaults'. Did you mean: 'list_vault'?
+2025-03-22 15:54:31,221 - custodian.policy - INFO - policy:update_policy_unprotected_vault resource:huaweicloud.cbr-vault region: count:3 time:1.02
+2025-03-22 16:12:36,198 - custodian.output - ERROR - Error while executing policy
+Traceback (most recent call last):
+  File "/root/huawei_custodian/cloud-custodian/c7n/policy.py", line 330, in run
+    resources = self.policy.resource_manager.resources()
+  File "/root/huawei_custodian/cloud-custodian/tools/c7n_huaweicloud/c7n_huaweicloud/query.py", line 153, in resources
+    resources = self._fetch_resources(q)
+  File "/root/huawei_custodian/cloud-custodian/tools/c7n_huaweicloud/c7n_huaweicloud/query.py", line 172, in _fetch_resources
+    return self.augment(self.source.get_resources(query)) or []
+                        ~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^
+  File "/root/huawei_custodian/cloud-custodian/tools/c7n_huaweicloud/c7n_huaweicloud/query.py", line 74, in get_resources
+    return self.query.filter(self.manager, **query)
+           ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/huawei_custodian/cloud-custodian/tools/c7n_huaweicloud/c7n_huaweicloud/query.py", line 28, in filter
+    resources = self._pagination_limit_offset(m, enum_op, path)
+  File "/root/huawei_custodian/cloud-custodian/tools/c7n_huaweicloud/c7n_huaweicloud/query.py", line 45, in _pagination_limit_offset
+    response = self._invoke_client_enum(client, enum_op, request)
+  File "/root/huawei_custodian/cloud-custodian/tools/c7n_huaweicloud/c7n_huaweicloud/query.py", line 62, in _invoke_client_enum
+    return getattr(client, enum_op)(request)
+           ~~~~~~~^^^^^^^^^^^^^^^^^
+AttributeError: 'CbrClient' object has no attribute 'list_vaults'. Did you mean: 'list_vault'?
+2025-03-22 16:12:52,132 - custodian.policy - INFO - policy:update_policy_unprotected_vault resource:huaweicloud.cbr-vault region: count:3 time:0.92

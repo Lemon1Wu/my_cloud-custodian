@@ -1,0 +1,207 @@
+2025-03-21 21:34:09,860 - custodian.output - ERROR - Error while executing policy
+Traceback (most recent call last):
+  File "/root/custodian/lib/python3.13/site-packages/huaweicloudsdkcore/http/http_client.py", line 127, in response_hook
+    resp.raise_for_status()
+    ~~~~~~~~~~~~~~~~~~~~~^^
+  File "/root/custodian/lib/python3.13/site-packages/requests/models.py", line 1024, in raise_for_status
+    raise HTTPError(http_error_msg, response=self)
+requests.exceptions.HTTPError: 401 Client Error: Unauthorized for url: https://iam.myhuaweicloud.com/v3/projects?name=ap-southeast-1
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/root/custodian/lib/python3.13/site-packages/huaweicloudsdkcore/auth/credentials.py", line 274, in process_auth_params
+    response = http_client.do_request_sync(self.process_auth_request(req, http_client).result())
+  File "/root/custodian/lib/python3.13/site-packages/huaweicloudsdkcore/http/http_client.py", line 100, in do_request_sync
+    self.response_error_hook_factory()(response)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^
+  File "/root/custodian/lib/python3.13/site-packages/huaweicloudsdkcore/http/http_client.py", line 129, in response_hook
+    self._exception_handler.handle_exception(httpError.request, httpError.response)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/custodian/lib/python3.13/site-packages/huaweicloudsdkcore/exceptions/exception_handler.py", line 75, in handle_exception
+    raise exceptions.ClientRequestException(response.status_code, sdk_error) if response.status_code < 500 \
+        else exceptions.ServerResponseException(response.status_code, sdk_error)
+huaweicloudsdkcore.exceptions.exceptions.ClientRequestException: ClientRequestException - {status_code:401,request_id:c63c98929fb7e743c66d35d7b82c4a06,error_code:APIGW.0301,error_msg:Incorrect IAM authentication information: Unauthorized,encoded_authorization_message:None }
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/root/huawei_custodian/cloud-custodian/c7n/policy.py", line 330, in run
+    resources = self.policy.resource_manager.resources()
+  File "/root/huawei_custodian/cloud-custodian/tools/c7n_huaweicloud/c7n_huaweicloud/query.py", line 153, in resources
+    resources = self._fetch_resources(q)
+  File "/root/huawei_custodian/cloud-custodian/tools/c7n_huaweicloud/c7n_huaweicloud/query.py", line 172, in _fetch_resources
+    return self.augment(self.source.get_resources(query)) or []
+                        ~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^
+  File "/root/huawei_custodian/cloud-custodian/tools/c7n_huaweicloud/c7n_huaweicloud/query.py", line 74, in get_resources
+    return self.query.filter(self.manager, **query)
+           ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/huawei_custodian/cloud-custodian/tools/c7n_huaweicloud/c7n_huaweicloud/query.py", line 28, in filter
+    resources = self._pagination_limit_offset(m, enum_op, path)
+  File "/root/huawei_custodian/cloud-custodian/tools/c7n_huaweicloud/c7n_huaweicloud/query.py", line 36, in _pagination_limit_offset
+    client = session.client(m.service)
+  File "/root/huawei_custodian/cloud-custodian/tools/c7n_huaweicloud/c7n_huaweicloud/client.py", line 68, in client
+    .build()
+     ~~~~~^^
+  File "/root/custodian/lib/python3.13/site-packages/huaweicloudsdkcore/client.py", line 197, in build
+    self._credentials = self._credentials.process_auth_params(client.get_http_client(), self._region.id)
+                        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/custodian/lib/python3.13/site-packages/huaweicloudsdkcore/auth/credentials.py", line 293, in process_auth_params
+    raise SdkException("Failed to get project id of region '%s' automatically, %s" % (region_id, e))
+huaweicloudsdkcore.exceptions.exceptions.SdkException: SdkException - Failed to get project id of region 'ap-southeast-1' automatically, ClientRequestException - {status_code:401,request_id:c63c98929fb7e743c66d35d7b82c4a06,error_code:APIGW.0301,error_msg:Incorrect IAM authentication information: Unauthorized,encoded_authorization_message:None }
+2025-03-21 21:35:04,603 - custodian.output - ERROR - Error while executing policy
+Traceback (most recent call last):
+  File "/root/custodian/lib/python3.13/site-packages/huaweicloudsdkcore/http/http_client.py", line 127, in response_hook
+    resp.raise_for_status()
+    ~~~~~~~~~~~~~~~~~~~~~^^
+  File "/root/custodian/lib/python3.13/site-packages/requests/models.py", line 1024, in raise_for_status
+    raise HTTPError(http_error_msg, response=self)
+requests.exceptions.HTTPError: 401 Client Error: Unauthorized for url: https://iam.myhuaweicloud.com/v3/projects?name=ap-southeast-1
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/root/custodian/lib/python3.13/site-packages/huaweicloudsdkcore/auth/credentials.py", line 274, in process_auth_params
+    response = http_client.do_request_sync(self.process_auth_request(req, http_client).result())
+  File "/root/custodian/lib/python3.13/site-packages/huaweicloudsdkcore/http/http_client.py", line 100, in do_request_sync
+    self.response_error_hook_factory()(response)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^
+  File "/root/custodian/lib/python3.13/site-packages/huaweicloudsdkcore/http/http_client.py", line 129, in response_hook
+    self._exception_handler.handle_exception(httpError.request, httpError.response)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/custodian/lib/python3.13/site-packages/huaweicloudsdkcore/exceptions/exception_handler.py", line 75, in handle_exception
+    raise exceptions.ClientRequestException(response.status_code, sdk_error) if response.status_code < 500 \
+        else exceptions.ServerResponseException(response.status_code, sdk_error)
+huaweicloudsdkcore.exceptions.exceptions.ClientRequestException: ClientRequestException - {status_code:401,request_id:f449fef68401d38dbd8bd8177222abb9,error_code:APIGW.0301,error_msg:Incorrect IAM authentication information: Unauthorized,encoded_authorization_message:None }
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/root/huawei_custodian/cloud-custodian/c7n/policy.py", line 330, in run
+    resources = self.policy.resource_manager.resources()
+  File "/root/huawei_custodian/cloud-custodian/tools/c7n_huaweicloud/c7n_huaweicloud/query.py", line 153, in resources
+    resources = self._fetch_resources(q)
+  File "/root/huawei_custodian/cloud-custodian/tools/c7n_huaweicloud/c7n_huaweicloud/query.py", line 172, in _fetch_resources
+    return self.augment(self.source.get_resources(query)) or []
+                        ~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^
+  File "/root/huawei_custodian/cloud-custodian/tools/c7n_huaweicloud/c7n_huaweicloud/query.py", line 74, in get_resources
+    return self.query.filter(self.manager, **query)
+           ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/huawei_custodian/cloud-custodian/tools/c7n_huaweicloud/c7n_huaweicloud/query.py", line 28, in filter
+    resources = self._pagination_limit_offset(m, enum_op, path)
+  File "/root/huawei_custodian/cloud-custodian/tools/c7n_huaweicloud/c7n_huaweicloud/query.py", line 36, in _pagination_limit_offset
+    client = session.client(m.service)
+  File "/root/huawei_custodian/cloud-custodian/tools/c7n_huaweicloud/c7n_huaweicloud/client.py", line 68, in client
+    .build()
+     ~~~~~^^
+  File "/root/custodian/lib/python3.13/site-packages/huaweicloudsdkcore/client.py", line 197, in build
+    self._credentials = self._credentials.process_auth_params(client.get_http_client(), self._region.id)
+                        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/custodian/lib/python3.13/site-packages/huaweicloudsdkcore/auth/credentials.py", line 293, in process_auth_params
+    raise SdkException("Failed to get project id of region '%s' automatically, %s" % (region_id, e))
+huaweicloudsdkcore.exceptions.exceptions.SdkException: SdkException - Failed to get project id of region 'ap-southeast-1' automatically, ClientRequestException - {status_code:401,request_id:f449fef68401d38dbd8bd8177222abb9,error_code:APIGW.0301,error_msg:Incorrect IAM authentication information: Unauthorized,encoded_authorization_message:None }
+2025-03-22 15:23:23,782 - custodian.policy - INFO - policy:delete-unentrypted-backup resource:huaweicloud.cbr-backup region: count:0 time:1.09
+2025-03-22 15:23:47,326 - custodian.policy - INFO - policy:delete-unentrypted-backup resource:huaweicloud.cbr-backup region: count:0 time:0.00
+2025-03-22 15:26:33,257 - custodian.policy - INFO - policy:delete-unentrypted-backup resource:huaweicloud.cbr-backup region: count:0 time:0.00
+2025-03-22 15:26:54,837 - custodian.policy - INFO - policy:delete-unentrypted-backup resource:huaweicloud.cbr-backup region: count:0 time:0.00
+2025-03-22 15:27:12,477 - custodian.policy - INFO - policy:delete-unentrypted-backup resource:huaweicloud.cbr-backup region: count:0 time:0.00
+2025-03-22 15:27:24,184 - custodian.policy - INFO - policy:delete-unentrypted-backup resource:huaweicloud.cbr-backup region: count:0 time:0.00
+2025-03-22 15:29:29,482 - custodian.policy - INFO - policy:delete-unentrypted-backup resource:huaweicloud.cbr-backup region: count:0 time:0.00
+2025-03-22 15:29:43,846 - custodian.policy - INFO - policy:delete-unentrypted-backup resource:huaweicloud.cbr-backup region: count:0 time:0.00
+2025-03-22 15:32:51,518 - custodian.policy - INFO - policy:delete-unentrypted-backup resource:huaweicloud.cbr-backup region: count:2 time:0.00
+2025-03-22 15:36:36,497 - custodian.policy - INFO - policy:delete-unentrypted-backup resource:huaweicloud.cbr-backup region: count:2 time:0.00
+2025-03-22 15:38:34,392 - custodian.policy - INFO - policy:delete-unentrypted-backup resource:huaweicloud.cbr-backup region: count:3 time:1.03
+2025-03-22 16:31:29,580 - custodian.policy - INFO - policy:delete-unentrypted-backup resource:huaweicloud.cbr-backup region: count:3 time:1.03
+2025-03-22 16:31:29,628 - custodian.huaweicloud.actions.base - ERROR - Unable to submit action against the resource - 1b235b9f-a680-4f32-a6f6-21cb613874ce RequestId: c4ceadb27b70c8a839c5c2ea2b7a14f9, Reason: The backup record does not exist.
+Traceback (most recent call last):
+  File "/root/custodian/lib/python3.13/site-packages/huaweicloudsdkcore/http/http_client.py", line 127, in response_hook
+    resp.raise_for_status()
+    ~~~~~~~~~~~~~~~~~~~~~^^
+  File "/root/custodian/lib/python3.13/site-packages/requests/models.py", line 1024, in raise_for_status
+    raise HTTPError(http_error_msg, response=self)
+requests.exceptions.HTTPError: 404 Client Error: Not Found for url: https://cbr.ap-southeast-1.myhuaweicloud.com/v3/0d9da8861b80f5a32fb4c00645f2dbd7/backups/%7Bbackup_id%7D
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/root/huawei_custodian/cloud-custodian/tools/c7n_huaweicloud/c7n_huaweicloud/actions/base.py", line 33, in process
+    self.perform_action(resource)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^
+  File "/root/huawei_custodian/cloud-custodian/tools/c7n_huaweicloud/c7n_huaweicloud/resources/cbr_backup.py", line 49, in perform_action
+    response = client.delete_backup(request)
+  File "/root/custodian/lib/python3.13/site-packages/huaweicloudsdkcbr/v1/cbr_client.py", line 1111, in delete_backup
+    return self._call_api(**http_info)
+           ~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "/root/custodian/lib/python3.13/site-packages/huaweicloudsdkcbr/v1/cbr_client.py", line 4792, in _call_api
+    return self.do_http_request(**kwargs)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^
+  File "/root/custodian/lib/python3.13/site-packages/huaweicloudsdkcore/client.py", line 480, in do_http_request
+    response = self._do_http_request_sync(request)
+  File "/root/custodian/lib/python3.13/site-packages/huaweicloudsdkcore/client.py", line 531, in _do_http_request_sync
+    response = self._http_client.do_request_sync(request)
+  File "/root/custodian/lib/python3.13/site-packages/huaweicloudsdkcore/http/http_client.py", line 100, in do_request_sync
+    self.response_error_hook_factory()(response)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^
+  File "/root/custodian/lib/python3.13/site-packages/huaweicloudsdkcore/http/http_client.py", line 129, in response_hook
+    self._exception_handler.handle_exception(httpError.request, httpError.response)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/custodian/lib/python3.13/site-packages/huaweicloudsdkcore/exceptions/exception_handler.py", line 75, in handle_exception
+    raise exceptions.ClientRequestException(response.status_code, sdk_error) if response.status_code < 500 \
+        else exceptions.ServerResponseException(response.status_code, sdk_error)
+huaweicloudsdkcore.exceptions.exceptions.ClientRequestException: ClientRequestException - {status_code:404,request_id:c4ceadb27b70c8a839c5c2ea2b7a14f9,error_code:BackupService.6200,error_msg:The backup record does not exist.,encoded_authorization_message:None }
+2025-03-22 16:31:29,670 - custodian.huaweicloud.actions.base - ERROR - Unable to submit action against the resource - a0570d8a-9526-4f68-80ba-e1d4cc1ea9d6 RequestId: 1bd47cc3c5ec85c5d3eecdb2da404e37, Reason: The backup record does not exist.
+Traceback (most recent call last):
+  File "/root/custodian/lib/python3.13/site-packages/huaweicloudsdkcore/http/http_client.py", line 127, in response_hook
+    resp.raise_for_status()
+    ~~~~~~~~~~~~~~~~~~~~~^^
+  File "/root/custodian/lib/python3.13/site-packages/requests/models.py", line 1024, in raise_for_status
+    raise HTTPError(http_error_msg, response=self)
+requests.exceptions.HTTPError: 404 Client Error: Not Found for url: https://cbr.ap-southeast-1.myhuaweicloud.com/v3/0d9da8861b80f5a32fb4c00645f2dbd7/backups/%7Bbackup_id%7D
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/root/huawei_custodian/cloud-custodian/tools/c7n_huaweicloud/c7n_huaweicloud/actions/base.py", line 33, in process
+    self.perform_action(resource)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^
+  File "/root/huawei_custodian/cloud-custodian/tools/c7n_huaweicloud/c7n_huaweicloud/resources/cbr_backup.py", line 49, in perform_action
+    response = client.delete_backup(request)
+  File "/root/custodian/lib/python3.13/site-packages/huaweicloudsdkcbr/v1/cbr_client.py", line 1111, in delete_backup
+    return self._call_api(**http_info)
+           ~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "/root/custodian/lib/python3.13/site-packages/huaweicloudsdkcbr/v1/cbr_client.py", line 4792, in _call_api
+    return self.do_http_request(**kwargs)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^
+  File "/root/custodian/lib/python3.13/site-packages/huaweicloudsdkcore/client.py", line 480, in do_http_request
+    response = self._do_http_request_sync(request)
+  File "/root/custodian/lib/python3.13/site-packages/huaweicloudsdkcore/client.py", line 531, in _do_http_request_sync
+    response = self._http_client.do_request_sync(request)
+  File "/root/custodian/lib/python3.13/site-packages/huaweicloudsdkcore/http/http_client.py", line 100, in do_request_sync
+    self.response_error_hook_factory()(response)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^
+  File "/root/custodian/lib/python3.13/site-packages/huaweicloudsdkcore/http/http_client.py", line 129, in response_hook
+    self._exception_handler.handle_exception(httpError.request, httpError.response)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/custodian/lib/python3.13/site-packages/huaweicloudsdkcore/exceptions/exception_handler.py", line 75, in handle_exception
+    raise exceptions.ClientRequestException(response.status_code, sdk_error) if response.status_code < 500 \
+        else exceptions.ServerResponseException(response.status_code, sdk_error)
+huaweicloudsdkcore.exceptions.exceptions.ClientRequestException: ClientRequestException - {status_code:404,request_id:1bd47cc3c5ec85c5d3eecdb2da404e37,error_code:BackupService.6200,error_msg:The backup record does not exist.,encoded_authorization_message:None }
+2025-03-22 16:31:29,671 - custodian.policy - INFO - policy:delete-unentrypted-backup action:cbrdeletebackup resources:1 execution_time:0.09
+2025-03-22 16:32:00,377 - custodian.policy - INFO - policy:delete-unentrypted-backup resource:huaweicloud.cbr-backup region: count:3 time:0.00
+2025-03-22 16:42:00,202 - custodian.policy - INFO - policy:delete-unentrypted-backup resource:huaweicloud.cbr-backup region: count:3 time:0.00
+2025-03-22 16:42:16,488 - custodian.policy - INFO - policy:delete-unentrypted-backup resource:huaweicloud.cbr-backup region: count:3 time:0.00
+2025-03-22 16:42:17,335 - custodian.output - ERROR - Error while executing policy
+Traceback (most recent call last):
+  File "/root/huawei_custodian/cloud-custodian/c7n/policy.py", line 364, in run
+    results = a.process(resources)
+  File "/root/huawei_custodian/cloud-custodian/tools/c7n_huaweicloud/c7n_huaweicloud/actions/base.py", line 33, in process
+    self.perform_action(resource)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^
+  File "/root/huawei_custodian/cloud-custodian/tools/c7n_huaweicloud/c7n_huaweicloud/resources/cbr_backup.py", line 53, in perform_action
+    request.backup_id = resource.id
+                        ^^^^^^^^^^^
+AttributeError: 'dict' object has no attribute 'id'
+2025-03-22 16:42:42,485 - custodian.policy - INFO - policy:delete-unentrypted-backup resource:huaweicloud.cbr-backup region: count:3 time:0.00
+2025-03-22 16:42:43,905 - custodian.policy - INFO - policy:delete-unentrypted-backup action:cbrdeletebackup resources:3 execution_time:1.42
+2025-03-22 16:43:33,594 - custodian.policy - INFO - policy:delete-unentrypted-backup resource:huaweicloud.cbr-backup region: count:3 time:0.00
+2025-03-22 16:45:08,301 - custodian.policy - INFO - policy:delete-unentrypted-backup resource:huaweicloud.cbr-backup region: count:3 time:0.00
