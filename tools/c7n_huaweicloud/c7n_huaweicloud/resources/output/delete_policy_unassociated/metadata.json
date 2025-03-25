@@ -4,18 +4,9 @@
     "resource": "huaweicloud.cbr-policy",
     "filters": [
       {
-        "and": [
-          {
-            "type": "value",
-            "key": "name",
-            "value": "weekly_create_backup"
-          },
-          {
-            "type": "value",
-            "key": "associated_vaults",
-            "value": []
-          }
-        ]
+        "type": "value",
+        "key": "name",
+        "value": "weekly_create_backup"
       }
     ],
     "actions": [
@@ -24,10 +15,10 @@
   },
   "version": "0.9.43",
   "execution": {
-    "id": "0229639b-96a3-46d1-87fe-f2349ebc53b9",
-    "start": 1742890182.199755,
-    "end_time": 1742890183.5482123,
-    "duration": 1.3484573364257812
+    "id": "043bfc50-e06e-47d5-a9e3-5fd2247885fd",
+    "start": 1742899483.1143064,
+    "end_time": 1742899483.9808714,
+    "duration": 0.8665649890899658
   },
   "config": {
     "region": "",
@@ -65,20 +56,20 @@
   "metrics": [
     {
       "MetricName": "ResourceCount",
-      "Timestamp": "2025-03-25T16:09:43.241299",
-      "Value": 1,
+      "Timestamp": "2025-03-25T18:44:43.115356",
+      "Value": 3,
       "Unit": "Count"
     },
     {
       "MetricName": "ResourceTime",
-      "Timestamp": "2025-03-25T16:09:43.241309",
-      "Value": 1.0412304401397705,
+      "Timestamp": "2025-03-25T18:44:43.115365",
+      "Value": 0.0006895065307617188,
       "Unit": "Seconds"
     },
     {
       "MetricName": "ActionTime",
-      "Timestamp": "2025-03-25T16:09:43.548199",
-      "Value": 0.306748628616333,
+      "Timestamp": "2025-03-25T18:44:43.980858",
+      "Value": 0.865281343460083,
       "Unit": "Seconds"
     }
   ]

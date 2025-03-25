@@ -878,3 +878,56 @@ huaweicloudsdkcore.exceptions.exceptions.ClientRequestException: ClientRequestEx
 2025-03-25 11:59:10,669 - custodian.policy - INFO - policy:associate_vault_policy_unprotected action:cbrassociatevaultpolicy resources:2 execution_time:0.72
 2025-03-25 12:07:05,610 - custodian.policy - INFO - policy:associate_vault_policy_unprotected resource:huaweicloud.cbr-vault region: count:0 time:1.34
 2025-03-25 16:29:53,095 - custodian.policy - INFO - policy:associate_vault_policy_unprotected resource:huaweicloud.cbr-vault region: count:3 time:1.77
+2025-03-25 18:37:45,275 - custodian.policy - INFO - policy:associate_vault_policy_unprotected resource:huaweicloud.cbr-vault region: count:4 time:1.43
+2025-03-25 18:37:46,440 - custodian.huaweicloud.actions.base - ERROR - Unable to submit action against the resource - f52b25cd-b7af-46cc-9c04-3a5b21e23209 RequestId: 939649aa1957605deb663fe4b105a472, Reason: The values of "["destination_project_id","destination_region"]" must be gave in replication\'s "operation_definition".
+Traceback (most recent call last):
+  File "/root/custodian/lib/python3.13/site-packages/huaweicloudsdkcore/http/http_client.py", line 127, in response_hook
+    resp.raise_for_status()
+    ~~~~~~~~~~~~~~~~~~~~~^^
+  File "/root/custodian/lib/python3.13/site-packages/requests/models.py", line 1024, in raise_for_status
+    raise HTTPError(http_error_msg, response=self)
+requests.exceptions.HTTPError: 400 Client Error: Bad Request for url: https://cbr.ap-southeast-1.myhuaweicloud.com/v3/0d9da8861b80f5a32fb4c00645f2dbd7/policies
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/root/huawei_custodian/cloud-custodian/tools/c7n_huaweicloud/c7n_huaweicloud/actions/base.py", line 33, in process
+    self.perform_action(resource)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^
+  File "/root/huawei_custodian/cloud-custodian/tools/c7n_huaweicloud/c7n_huaweicloud/resources/cbr_vault.py", line 138, in perform_action
+    policy_id=self.create_policy(
+              ~~~~~~~~~~~~~~~~~~^
+        day_backups=self.data.get('day_backups'),
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<7 lines>...
+        operation_type=resource['billing']['protect_type']
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )['policy']['id']
+    ^
+  File "/root/huawei_custodian/cloud-custodian/tools/c7n_huaweicloud/c7n_huaweicloud/resources/cbr_vault.py", line 191, in create_policy
+    response = client.create_policy(request)
+  File "/root/custodian/lib/python3.13/site-packages/huaweicloudsdkcbr/v1/cbr_client.py", line 848, in create_policy
+    return self._call_api(**http_info)
+           ~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "/root/custodian/lib/python3.13/site-packages/huaweicloudsdkcbr/v1/cbr_client.py", line 4792, in _call_api
+    return self.do_http_request(**kwargs)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^
+  File "/root/custodian/lib/python3.13/site-packages/huaweicloudsdkcore/client.py", line 480, in do_http_request
+    response = self._do_http_request_sync(request)
+  File "/root/custodian/lib/python3.13/site-packages/huaweicloudsdkcore/client.py", line 531, in _do_http_request_sync
+    response = self._http_client.do_request_sync(request)
+  File "/root/custodian/lib/python3.13/site-packages/huaweicloudsdkcore/http/http_client.py", line 100, in do_request_sync
+    self.response_error_hook_factory()(response)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^
+  File "/root/custodian/lib/python3.13/site-packages/huaweicloudsdkcore/http/http_client.py", line 129, in response_hook
+    self._exception_handler.handle_exception(httpError.request, httpError.response)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/custodian/lib/python3.13/site-packages/huaweicloudsdkcore/exceptions/exception_handler.py", line 75, in handle_exception
+    raise exceptions.ClientRequestException(response.status_code, sdk_error) if response.status_code < 500 \
+        else exceptions.ServerResponseException(response.status_code, sdk_error)
+huaweicloudsdkcore.exceptions.exceptions.ClientRequestException: ClientRequestException - {status_code:400,request_id:939649aa1957605deb663fe4b105a472,error_code:BackupService.9900,error_msg:The values of "["destination_project_id","destination_region"]" must be gave in replication\'s "operation_definition".,encoded_authorization_message:None }
+2025-03-25 18:37:46,442 - custodian.policy - INFO - policy:associate_vault_policy_unprotected action:cbrassociatevaultpolicy resources:3 execution_time:1.17
+2025-03-25 18:41:09,384 - custodian.policy - INFO - policy:associate_vault_policy_unprotected resource:huaweicloud.cbr-vault region: count:1 time:1.20
+2025-03-25 18:41:09,815 - custodian.policy - INFO - policy:associate_vault_policy_unprotected action:cbrassociatevaultpolicy resources:1 execution_time:0.43
+2025-03-25 18:42:33,875 - custodian.policy - INFO - policy:associate_vault_policy_unprotected resource:huaweicloud.cbr-vault region: count:3 time:1.14
+2025-03-25 18:42:34,801 - custodian.policy - INFO - policy:associate_vault_policy_unprotected action:cbrassociatevaultpolicy resources:3 execution_time:0.93

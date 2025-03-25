@@ -76,12 +76,7 @@
         "auto_protect": true
       }
     ],
-    "tags": [
-      {
-        "key": "2",
-        "value": "2"
-      }
-    ],
+    "tags": [],
     "enterprise_project_id": "d522b930-e31e-455f-b54e-f8ebdd7c94cd",
     "auto_bind": false,
     "bind_rules": {

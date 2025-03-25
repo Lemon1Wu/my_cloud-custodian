@@ -1,28 +1,110 @@
 [
   {
     "enabled": true,
-    "id": "3066b0ac-383c-4f5b-952a-2501d90f4f49",
+    "id": "2696bf00-e64b-4b1a-9f6b-5cee1d240eab",
     "name": "weekly_create_backup",
     "operation_definition": {
+      "day_backups": 0,
+      "max_backups": -1,
+      "month_backups": 0,
       "retention_duration_days": 30,
+      "timezone": "UTC+08:00",
+      "week_backups": 0,
+      "year_backups": 0,
       "full_backup_interval": -1
     },
     "operation_type": "backup",
     "trigger": {
-      "id": "e61e838f-6019-4f79-92b4-66c3ab5817ff",
+      "id": "2068b045-c89c-4d80-9af0-96fefc04ec0e",
       "name": "default",
       "properties": {
         "pattern": [
-          "FREQ=WEEKLY;BYDAY=MO,TU,WE,TH,FR,SA,SU;BYHOUR=09;BYMINUTE=00"
+          "FREQ=WEEKLY;BYDAY=MO,TU,WE,TH,FR,SA,SU;BYHOUR=09;BYMINUTE=00",
+          "FREQ=WEEKLY;BYDAY=MO,TU,WE,TH,FR,SA,SU;BYHOUR=10;BYMINUTE=00"
         ],
-        "start_time": "2025-03-25 07:59:52"
+        "start_time": "2025-03-25 10:41:09"
       },
       "type": "time"
     },
-    "associated_vaults": [],
+    "associated_vaults": [
+      {
+        "vault_id": "78fe6b2b-15e1-4fce-9cd9-4cbb5021fe92"
+      }
+    ],
     "c7n:MatchedFilters": [
-      "name",
-      "associated_vaults"
+      "name"
+    ]
+  },
+  {
+    "enabled": true,
+    "id": "91972006-003a-4682-b61f-c6258fb6eacf",
+    "name": "weekly_create_backup",
+    "operation_definition": {
+      "day_backups": 0,
+      "max_backups": -1,
+      "month_backups": 0,
+      "retention_duration_days": 30,
+      "timezone": "UTC+08:00",
+      "week_backups": 0,
+      "year_backups": 0,
+      "full_backup_interval": -1
+    },
+    "operation_type": "backup",
+    "trigger": {
+      "id": "ded151b6-a885-4213-b834-0c946d10625c",
+      "name": "default",
+      "properties": {
+        "pattern": [
+          "FREQ=WEEKLY;BYDAY=MO,TU,WE,TH,FR,SA,SU;BYHOUR=09;BYMINUTE=00",
+          "FREQ=WEEKLY;BYDAY=MO,TU,WE,TH,FR,SA,SU;BYHOUR=10;BYMINUTE=00"
+        ],
+        "start_time": "2025-03-25 10:37:45"
+      },
+      "type": "time"
+    },
+    "associated_vaults": [
+      {
+        "vault_id": "42da2015-a512-481a-9c86-f02c08cffc10"
+      }
+    ],
+    "c7n:MatchedFilters": [
+      "name"
+    ]
+  },
+  {
+    "enabled": true,
+    "id": "33478244-e1cc-4ac2-9bd0-f48099fce6b0",
+    "name": "weekly_create_backup",
+    "operation_definition": {
+      "day_backups": 0,
+      "max_backups": -1,
+      "month_backups": 0,
+      "retention_duration_days": 30,
+      "timezone": "UTC+08:00",
+      "week_backups": 0,
+      "year_backups": 0,
+      "full_backup_interval": -1
+    },
+    "operation_type": "backup",
+    "trigger": {
+      "id": "7d561124-84e6-40af-a66a-bb4bf123d3f6",
+      "name": "default",
+      "properties": {
+        "pattern": [
+          "FREQ=WEEKLY;BYDAY=MO,TU,WE,TH,FR,SA,SU;BYHOUR=09;BYMINUTE=00",
+          "FREQ=WEEKLY;BYDAY=MO,TU,WE,TH,FR,SA,SU;BYHOUR=10;BYMINUTE=00"
+        ],
+        "start_time": "2025-03-25 10:37:45"
+      },
+      "type": "time"
+    },
+    "associated_vaults": [
+      {
+        "vault_id": "06e844ba-d4bf-40be-b07f-c60d3c2ce679"
+      }
+    ],
+    "c7n:MatchedFilters": [
+      "name"
     ]
   }
 ]

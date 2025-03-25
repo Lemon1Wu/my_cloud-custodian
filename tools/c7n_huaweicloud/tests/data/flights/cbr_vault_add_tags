@@ -217,12 +217,12 @@ interactions:
       X-Project-Id:
       - ap-southeat-1
       X-Sdk-Date:
-      - 20250325T082341Z
+      - 20250325T101342Z
     method: GET
     uri: https://cbr.ap-southeast-1.myhuaweicloud.com/v3/ap-southeat-1/vaults?limit=100&offset=0
   response:
     body:
-      string: '{"error_msg":"Incorrect IAM authentication information: Unauthorized","error_code":"APIGW.0301","request_id":"6a18af87bded26bc84cff784f7df1b77"}
+      string: '{"error_msg":"Incorrect IAM authentication information: Unauthorized","error_code":"APIGW.0301","request_id":"4962c41759acfe8625aee3d1e217295a"}
 
         '
     headers:
@@ -231,7 +231,7 @@ interactions:
       Content-Type:
       - application/json
       Date:
-      - Tue, 25 Mar 2025 08:23:41 GMT
+      - Tue, 25 Mar 2025 10:13:42 GMT
       Server:
       - api-gateway
       Strict-Transport-Security:
@@ -245,7 +245,7 @@ interactions:
       X-Frame-Options:
       - SAMEORIGIN
       X-Request-Id:
-      - 6a18af87bded26bc84cff784f7df1b77
+      - 4962c41759acfe8625aee3d1e217295a
       X-XSS-Protection:
       - 1; mode=block;
     status:

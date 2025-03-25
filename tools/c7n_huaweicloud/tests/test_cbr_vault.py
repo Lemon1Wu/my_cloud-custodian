@@ -16,6 +16,9 @@ class CbrVaultTest(BaseTest):
         resources = p.run()
         self.assertEqual(len(resources), 4)
         self.assertEqual(resources[0]['id'], '06e844ba-d4bf-40be-b07f-c60d3c2ce679')
+        self.assertEqual(resources[1]['id'], '42da2015-a512-481a-9c86-f02c08cffc10')
+        self.assertEqual(resources[2]['id'], 'f52b25cd-b7af-46cc-9c04-3a5b21e23209')
+        self.assertEqual(resources[3]['id'], '78fe6b2b-15e1-4fce-9cd9-4cbb5021fe92')
 
     def test_vault_untagged_filter(self):
         factory = self.replay_flight_data('cbr_vault_untagged')
@@ -27,8 +30,11 @@ class CbrVaultTest(BaseTest):
             },
             session_factory=factory)
         resources = p.run()
-        self.assertEqual(len(resources), 3)
-        self.assertEqual(resources[0]['id'], '42da2015-a512-481a-9c86-f02c08cffc10')
+        self.assertEqual(len(resources), 4)
+        self.assertEqual(resources[0]['id'], '06e844ba-d4bf-40be-b07f-c60d3c2ce679')
+        self.assertEqual(resources[1]['id'], '42da2015-a512-481a-9c86-f02c08cffc10')
+        self.assertEqual(resources[2]['id'], 'f52b25cd-b7af-46cc-9c04-3a5b21e23209')
+        self.assertEqual(resources[3]['id'], '78fe6b2b-15e1-4fce-9cd9-4cbb5021fe92')
 
     def test_vault_unassociated_with_policy(self):
         factory = self.replay_flight_data('cbr_vault_unassociated_with_policy')
@@ -36,14 +42,20 @@ class CbrVaultTest(BaseTest):
             {
                 'name': 'cbr_vault_unassociated_with_policy',
                 'resource': 'huaweicloud.cbr-vault',
-                'filters': [{'and': [{'type': 'associated_vaults', 'op': 'ni'},
-                                     {'type': 'value', 'key': 'billing.protect_type', 'value': 'backup'}]
-                             }],
+                'filters': [{
+                    'and': [{'type': 'unassociated'},
+                            {'type': 'value',
+                             'key': 'billing.protect_type',
+                             'value': 'backup'},
+                            ]
+                }],
             },
             session_factory=factory)
         resources = p.run()
         self.assertEqual(len(resources), 3)
-        self.assertEqual(resources[0]['id'], '42da2015-a512-481a-9c86-f02c08cffc10')
+        self.assertEqual(resources[0]['id'], '06e844ba-d4bf-40be-b07f-c60d3c2ce679')
+        self.assertEqual(resources[1]['id'], '42da2015-a512-481a-9c86-f02c08cffc10')
+        self.assertEqual(resources[2]['id'], '78fe6b2b-15e1-4fce-9cd9-4cbb5021fe92')
 
     def test_vault_add_tags_action(self):
         factory = self.replay_flight_data('cbr_vault_add_tags')
@@ -55,8 +67,11 @@ class CbrVaultTest(BaseTest):
             },
             session_factory=factory)
         resources = p.run()
-        # self.assertEqual(len(resources), 3)
-        # self.assertEqual(resources[0]['id'], '42da2015-a512-481a-9c86-f02c08cffc10')
+        self.assertEqual(len(resources), 3)
+        self.assertEqual(resources[0]['id'], '06e844ba-d4bf-40be-b07f-c60d3c2ce679')
+        self.assertEqual(resources[1]['id'], '42da2015-a512-481a-9c86-f02c08cffc10')
+        self.assertEqual(resources[2]['id'], 'f52b25cd-b7af-46cc-9c04-3a5b21e23209')
+        self.assertEqual(resources[3]['id'], '78fe6b2b-15e1-4fce-9cd9-4cbb5021fe92')
 
     def test_associate_vault_with_policy_action(self):
         factory = self.replay_flight_data('cbr_associate_vault_with_policy')
@@ -78,4 +93,6 @@ class CbrVaultTest(BaseTest):
             session_factory=factory)
         resources = p.run()
         self.assertEqual(len(resources), 3)
-        self.assertEqual(resources[0]['id'], '42da2015-a512-481a-9c86-f02c08cffc10')
+        self.assertEqual(resources[0]['id'], '06e844ba-d4bf-40be-b07f-c60d3c2ce679')
+        self.assertEqual(resources[1]['id'], '42da2015-a512-481a-9c86-f02c08cffc10')
+        self.assertEqual(resources[2]['id'], '78fe6b2b-15e1-4fce-9cd9-4cbb5021fe92')

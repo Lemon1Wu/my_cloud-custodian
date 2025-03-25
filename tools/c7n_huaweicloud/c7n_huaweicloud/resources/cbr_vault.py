@@ -6,6 +6,7 @@ from huaweicloudsdkcore.exceptions import exceptions
 from huaweicloudsdkcbr.v1 import *
 from huaweicloudsdkcbr.v1.region.cbr_region import CbrRegion
 
+from c7n.filters import OPERATORS, Filter
 from huaweicloudsdkcore.auth.credentials import BasicCredentials
 from c7n.utils import type_schema, local_session
 from c7n_huaweicloud.actions.base import HuaweiCloudBaseAction
@@ -68,9 +69,21 @@ class CbrVaultAddTags(HuaweiCloudBaseAction):
         return response
 
 
-@CbrVault.filter_registry.register('associated_vaults')
-class CbrVaultFilter(AssociatedVaultsFilter):
-    schema = type_schema('associated_vaults', op={'enum': ['ni', 'in']})
+@CbrVault.filter_registry.register('unassociated')
+# class CbrVaultFilter(AssociatedVaultsFilter):
+#     schema = type_schema('associated_vaults', op={'enum': ['ni', 'in']})
+class CbrVaultFilter(Filter):
+    schema = type_schema('unassociated')
+    def process(self, resources, event=None):
+        results = []
+        client = self.manager.get_client()
+        for r in resources:
+            request = ListPoliciesRequest()
+            request.vault_id = r['id']
+            response = client.list_policies(request).to_dict()['policies']
+            if not response:
+                results.append(r)
+        return results
 
 
 @CbrVault.action_registry.register('associate_vault_policy')

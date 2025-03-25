@@ -6,8 +6,7 @@
       {
         "and": [
           {
-            "type": "associated_vaults",
-            "op": "ni"
+            "type": "unassociated"
           },
           {
             "type": "value",
@@ -16,14 +15,27 @@
           }
         ]
       }
+    ],
+    "actions": [
+      {
+        "type": "associate_vault_policy",
+        "day_backups": 0,
+        "week_backups": 0,
+        "month_backups": 0,
+        "year_backups": 0,
+        "max_backups": -1,
+        "retention_duration_days": 30,
+        "full_backup_interval": -1,
+        "timezone": "UTC+08:00"
+      }
     ]
   },
   "version": "0.9.43",
   "execution": {
-    "id": "82d987aa-8364-4e33-a361-e068074cb0bb",
-    "start": 1742891391.323157,
-    "end_time": 1742891393.0956519,
-    "duration": 1.7724947929382324
+    "id": "5569988c-820f-4c68-bedf-e2f8310c65e6",
+    "start": 1742899352.7363555,
+    "end_time": 1742899354.8036513,
+    "duration": 2.067295789718628
   },
   "config": {
     "region": "",
@@ -61,20 +73,20 @@
   "metrics": [
     {
       "MetricName": "ResourceCount",
-      "Timestamp": "2025-03-25T16:29:53.095382",
+      "Timestamp": "2025-03-25T18:42:33.875420",
       "Value": 3,
       "Unit": "Count"
     },
     {
       "MetricName": "ResourceTime",
-      "Timestamp": "2025-03-25T16:29:53.095394",
-      "Value": 1.7718205451965332,
+      "Timestamp": "2025-03-25T18:42:33.875433",
+      "Value": 1.1386213302612305,
       "Unit": "Seconds"
     },
     {
       "MetricName": "ActionTime",
-      "Timestamp": "2025-03-25T16:29:53.095641",
-      "Value": 3.0994415283203125e-06,
+      "Timestamp": "2025-03-25T18:42:34.803637",
+      "Value": 0.9279382228851318,
       "Unit": "Seconds"
     }
   ]
