@@ -9,5 +9,5 @@ policies:
           - type: value
             key: resource_type
             value: "OS::Cinder::Volume"
-#      actions:
-#          - delete_backup
+      actions:
+          - delete

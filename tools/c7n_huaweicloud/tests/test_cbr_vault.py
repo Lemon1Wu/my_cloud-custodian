@@ -67,7 +67,7 @@ class CbrVaultTest(BaseTest):
             },
             session_factory=factory)
         resources = p.run()
-        self.assertEqual(len(resources), 3)
+        self.assertEqual(len(resources), 4)
         self.assertEqual(resources[0]['id'], '06e844ba-d4bf-40be-b07f-c60d3c2ce679')
         self.assertEqual(resources[1]['id'], '42da2015-a512-481a-9c86-f02c08cffc10')
         self.assertEqual(resources[2]['id'], 'f52b25cd-b7af-46cc-9c04-3a5b21e23209')

@@ -17,7 +17,7 @@ class CbrBackup(QueryResourceManager):
         id = 'id'
 
 
-@CbrBackup.action_registry.register('delete_backup')
+@CbrBackup.action_registry.register('delete')
 class CbrDeleteBackup(HuaweiCloudBaseAction):
     '''
     Checks if a recovery point is encrypted. Delete the recovery point not encrypted.
@@ -30,20 +30,20 @@ class CbrDeleteBackup(HuaweiCloudBaseAction):
             - name: delete-unencrypted-backup
               resource: huaweicloud.cbr-backup
               filters:
-                - or:
+                - and:
                   - type: value
                     key: extend_info.encrypted
                     value: false
                   - type: value
-                    key: extend_info.encrypted_algorithm
-                    value: null
+                    key: resource_type
+                    value: "OS::Cinder::Volume"
               actions:
-                - delete_backup
+                  - delete
 
     
     '''
 
-    schema = type_schema('delete_backup')
+    schema = type_schema('delete')
 
     def perform_action(self, resource):
 
