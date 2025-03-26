@@ -21,7 +21,7 @@ class CbrBackup(QueryResourceManager):
 class CbrDeleteBackup(HuaweiCloudBaseAction):
     '''
     Checks if a recovery point is encrypted. Delete the recovery point not encrypted.
-    
+
     :Example:
 
     .. code-block:: yaml
@@ -40,7 +40,7 @@ class CbrDeleteBackup(HuaweiCloudBaseAction):
               actions:
                   - delete
 
-    
+
     '''
 
     schema = type_schema('delete')
