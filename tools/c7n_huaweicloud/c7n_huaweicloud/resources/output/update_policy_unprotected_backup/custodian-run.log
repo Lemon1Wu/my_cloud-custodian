@@ -1,2 +1,0 @@
-2025-03-22 15:04:53,316 - custodian.policy - INFO - policy:update_policy_unprotected_backup resource:huaweicloud.cbr-backup region: count:0 time:1.04
-2025-03-22 15:05:24,026 - custodian.policy - INFO - policy:update_policy_unprotected_backup resource:huaweicloud.cbr-backup region: count:0 time:0.00
