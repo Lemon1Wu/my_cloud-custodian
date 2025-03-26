@@ -1,8 +1,0 @@
-{
-    "status_code": 200,
-    "data": {
-        "registryId": "644160558196",
-        "repositoryName": "testrepo",
-        "imageTagMutability": "IMMUTABLE"
-    }
-}

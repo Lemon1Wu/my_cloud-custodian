@@ -1,9 +1,0 @@
-{
-    "status_code": 200,
-    "data": {
-        "ResourceArns": [
-            "arn:aws:elasticloadbalancing:us-east-1:123456789123:loadbalancer/app/test/433ae0ba96204181"
-        ],
-        "ResponseMetadata": {}
-    }
-}

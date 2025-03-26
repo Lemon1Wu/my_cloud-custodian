@@ -1,7 +1,0 @@
-{
-    "status_code": 200,
-    "data": {
-        "ClusterArn": "arn:aws:sagemaker:us-east-1:644160558196:cluster/u72dzcdx4scy",
-        "ResponseMetadata": {}
-    }
-}

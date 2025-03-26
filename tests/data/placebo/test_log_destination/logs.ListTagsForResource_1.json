@@ -1,9 +1,0 @@
-{
-    "status_code": 200,
-    "data": {
-        "tags": {
-            "test-tag": "test-value"
-        },
-        "ResponseMetadata": {}
-    }
-}
