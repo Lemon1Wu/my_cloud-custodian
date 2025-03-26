@@ -9,6 +9,7 @@ from c7n_huaweicloud.query import QueryResourceManager, TypeInfo
 
 log = logging.getLogger("custodian.huaweicloud.resources.cbr-backup")
 
+
 @resources.register('cbr-backup')
 class CbrBackup(QueryResourceManager):
     class resource_type(TypeInfo):
@@ -46,7 +47,6 @@ class CbrDeleteBackup(HuaweiCloudBaseAction):
     schema = type_schema('delete')
 
     def perform_action(self, resource):
-
         client = self.manager.get_client()
         try:
             request = DeleteBackupRequest()
@@ -56,8 +56,3 @@ class CbrDeleteBackup(HuaweiCloudBaseAction):
             log.error(e.status_code, e.request_id, e.error_code, e.error_msg)
             raise
         return response
-
-
-
-
-

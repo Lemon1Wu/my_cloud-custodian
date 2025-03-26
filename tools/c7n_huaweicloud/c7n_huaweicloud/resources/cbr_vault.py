@@ -1,13 +1,10 @@
 import logging
-import os
-import sys
 
 from huaweicloudsdkcore.exceptions import exceptions
 from huaweicloudsdkcbr.v1 import *
 from huaweicloudsdkcbr.v1.region.cbr_region import CbrRegion
 
-from c7n.filters import OPERATORS, Filter
-from huaweicloudsdkcore.auth.credentials import BasicCredentials
+from c7n.filters import Filter
 from c7n.utils import type_schema, local_session
 from c7n_huaweicloud.actions.base import HuaweiCloudBaseAction
 from c7n_huaweicloud.provider import resources
@@ -22,7 +19,6 @@ class CbrVault(QueryResourceManager):
         service = 'cbr-vault'
         enum_spec = ('list_vault', 'vaults', 'offset')
         id = 'id'
-
 
 
 @CbrVault.action_registry.register('add_tags')
@@ -46,7 +42,11 @@ class CbrVaultAddTags(HuaweiCloudBaseAction):
 
     '''
 
-    schema = type_schema('add_tags', keys={'type': 'array', 'items': {'type': 'string'}}, values={'type': 'array', 'items': {'type': 'string'}})
+    schema = type_schema('add_tags',
+                         keys={'type': 'array',
+                               'items': {'type': 'string'}},
+                         values={'type': 'array',
+                                 'items': {'type': 'string'}})
 
     def perform_action(self, resource):
 
@@ -73,6 +73,7 @@ class CbrVaultAddTags(HuaweiCloudBaseAction):
 #     schema = type_schema('associated_vaults', op={'enum': ['ni', 'in']})
 class CbrVaultFilter(Filter):
     schema = type_schema('unassociated')
+
     def process(self, resources, event=None):
         results = []
         client = self.manager.get_client()
@@ -152,7 +153,16 @@ class CbrAssociateVaultPolicy(HuaweiCloudBaseAction):
             raise
         return response
 
-    def create_policy(self, day_backups, week_backups, month_backups, year_backups, max_backups, retention_duration_days, full_backup_interval, timezone, operation_type):
+    def create_policy(self,
+                      day_backups,
+                      week_backups,
+                      month_backups,
+                      year_backups,
+                      max_backups,
+                      retention_duration_days,
+                      full_backup_interval,
+                      timezone,
+                      operation_type):
         client = local_session(self.manager.get_client()).client('cbr-policy')
 
         try:
@@ -192,6 +202,3 @@ class CbrAssociateVaultPolicy(HuaweiCloudBaseAction):
             log.error(e.status_code, e.request_id, e.error_code, e.error_msg)
             raise
         return response.to_dict()
-
-
-
