@@ -24,7 +24,7 @@ class CbrDeleteBackup(HuaweiCloudBaseAction):
 
     WARNING: Deleted backups are unrecoverable forever.
 
-    : Example:
+    :Example:
 
     .. code-block:: yaml
 

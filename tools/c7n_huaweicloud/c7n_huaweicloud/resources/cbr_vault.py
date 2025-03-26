@@ -26,7 +26,7 @@ class CbrVaultAddTags(HuaweiCloudBaseAction):
     '''
     Check if a backup is tagged. Input tags to add to the backup not tagged.
 
-    : Example:
+    :Example:
 
     .. code-block:: yaml
 
