@@ -26,7 +26,7 @@ class CbrVaultAddTags(HuaweiCloudBaseAction):
     '''
     Check if a backup is tagged. Input tags to add to the backup not tagged.
 
-    :Example:
+    : Example:
 
     .. code-block:: yaml
 
@@ -78,18 +78,23 @@ class CbrVaultFilter(Filter):
         results = []
         client = self.manager.get_client()
         for r in resources:
-            request = ListPoliciesRequest()
-            request.vault_id = r['id']
-            response = client.list_policies(request).to_dict()['policies']
-            if not response:
-                results.append(r)
+            try:
+                request = ListPoliciesRequest()
+                request.vault_id = r['id']
+                response = client.list_policies(request).to_dict()['policies']
+                if not response:
+                    results.append(r)
+            except exceptions.ClientRequestException as e:
+                log.error(e.status_code, e.request_id, e.error_code, e.error_msg)
+                raise
         return results
 
 
 @CbrVault.action_registry.register('associate_vault_policy')
 class CbrAssociateVaultPolicy(HuaweiCloudBaseAction):
     '''
-    Checks if a vault of which protect type is backup is associated with a policy. Create a policy which is default created weekly and associate it with the vault not associated with any policy.
+    Checks if a vault of which protect type is backup is associated with a policy.
+    Create a policy which is default created weekly and associate it with the vault not associated with any policy.
 
     :Example:
 
